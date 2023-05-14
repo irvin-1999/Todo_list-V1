@@ -1,10 +1,12 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-let items = ['1st item']
 
 const app = express()
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static('public'))
+
+let items = ['1st item']
 
 app.get('/', (req, res) => {
     const today = new Date()
